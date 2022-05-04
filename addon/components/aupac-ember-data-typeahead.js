@@ -94,8 +94,8 @@ export default AupacTypeahead.extend({
 
       _this.get('store').query(_this.get('modelClass'), queryObj).then(function(models) {
         let emberDataModels = [];
-        models.get('content').forEach(function(model, i) {
-          emberDataModels[i] = model.getRecord();
+        models.toArray().forEach(function(model, i) {
+          emberDataModels[i] = model;
         });
         asyncResults(emberDataModels);
       });
